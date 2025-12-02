@@ -22,10 +22,10 @@ const config: Phaser.Types.Core.GameConfig = {
         default: 'matter',
         matter: {
             // debug: true,
-            gravity: { x: 0, y: 3 },
-            enableSleeping: false,
+            gravity: { x: 0.001, y: 1 },
+            enableSleeping: true,
             runner: {
-                isFixed: true,
+                // isFixed: true,
                 fps: 60,
             },
         },
