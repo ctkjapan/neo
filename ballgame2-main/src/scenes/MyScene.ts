@@ -120,7 +120,7 @@ export default class MyScene extends Phaser.Scene {
         ball.setDisplaySize(type.size, type.size);
         // ball.setCircle(type.size / 2);
         ball.setCircle(type.size / 2.5);
-        ball.setBounce(0.2);
+        ball.setBounce(0.5);
         ball.depth = 1;
         if (isRandomRotation) {
             ball.setRotation(random(360));
