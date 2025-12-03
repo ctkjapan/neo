@@ -1,6 +1,6 @@
 # ballgame2
 
-https://babu-ch.github.io/ballgame2/
+<https://babu-ch.github.io/ballgame2/>
 
 # devlop
 
@@ -11,4 +11,4 @@ npm run build
 
 # setumei
 
-https://qiita.com/babu-ch/items/b5ac12d59b0be19d5e61
+<https://qiita.com/babu-ch/items/b5ac12d59b0be19d5e61>
