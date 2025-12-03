@@ -43,24 +43,14 @@ export default class MyScene extends Phaser.Scene {
 
     constructor() {
         super({ key: 'myscene' });
-        this.version = '251203_1';
+        this.version = '251203_2';
         this.balls = [];
         this.score = 0;
         this.nextBallReady = true;
         this.gameTitle = true;
         this.gameOver = false;
         // ボールの種類 score=消した時の点数 size=大きさ  color=色
-        this.ballTypes = [
-            { score: 1, size: 20, color: 0xff5733, key: '0' },
-            { score: 2, size: 28, color: 0x00bfa5, key: '1' },
-            { score: 3, size: 39, color: 0x6f42c1, key: '2' },
-            { score: 5, size: 54, color: 0x6f42c1, key: '3' },
-            { score: 7, size: 76, color: 0x2ecc71, key: '4' },
-            { score: 10, size: 107, color: 0xffc107, key: '5' },
-            { score: 25, size: 150, color: 0x3498db, key: '6' },
-            { score: 50, size: 210, color: 0xd32f2f, key: '7' },
-            { score: 100, size: 250, color: 0xd32f2f, key: '8' },
-        ];
+        this.ballTypes = [];
 
         this.gameOverLineY = 150;
         this.getBallY = 100;
@@ -70,7 +60,7 @@ export default class MyScene extends Phaser.Scene {
     }
 
     preload() {
-        ['0', '1', '2', '3', '4', '5', '6', '7'].forEach((key) => {
+        ['0', '1', '2', '3', '4', '5', '6', '7', '8'].forEach((key) => {
             this.load.image(key, `./img/min/${key}.png?${this.version}`);
         });
     }
