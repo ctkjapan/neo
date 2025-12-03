@@ -7,6 +7,7 @@ https://babu-ch.github.io/ballgame2/
 npm i
 
 npm run dev
+npm run build
 
 # setumei
 

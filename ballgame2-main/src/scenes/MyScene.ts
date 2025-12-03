@@ -43,7 +43,7 @@ export default class MyScene extends Phaser.Scene {
 
     constructor() {
         super({ key: 'myscene' });
-        this.version = '240417_1';
+        this.version = '251203_1';
         this.balls = [];
         this.score = 0;
         this.nextBallReady = true;
@@ -51,14 +51,14 @@ export default class MyScene extends Phaser.Scene {
         this.gameOver = false;
         // ボールの種類 score=消した時の点数 size=大きさ  color=色
         this.ballTypes = [
-            { score: 10, size: 25, color: 0xff5733, key: '0' },
-            { score: 20, size: 50, color: 0x00bfa5, key: '1' },
-            { score: 30, size: 75, color: 0x6f42c1, key: '2' },
-            { score: 50, size: 100, color: 0x6f42c1, key: '3' },
-            { score: 70, size: 125, color: 0x2ecc71, key: '4' },
-            { score: 100, size: 150, color: 0xffc107, key: '5' },
-            { score: 250, size: 175, color: 0x3498db, key: '6' },
-            { score: 500, size: 250, color: 0xd32f2f, key: '7' },
+            { score: 10, size: 20, color: 0xff5733, key: '0' },
+            { score: 20, size: 28, color: 0x00bfa5, key: '1' },
+            { score: 30, size: 39, color: 0x6f42c1, key: '2' },
+            { score: 50, size: 54, color: 0x6f42c1, key: '3' },
+            { score: 70, size: 76, color: 0x2ecc71, key: '4' },
+            { score: 100, size: 107, color: 0xffc107, key: '5' },
+            { score: 250, size: 150, color: 0x3498db, key: '6' },
+            { score: 500, size: 210, color: 0xd32f2f, key: '7' },
         ];
 
         this.gameOverLineY = 150;
