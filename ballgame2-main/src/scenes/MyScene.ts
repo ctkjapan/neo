@@ -45,7 +45,7 @@ export default class MyScene extends Phaser.Scene {
 
     constructor() {
         super({ key: 'myscene' });
-        this.version = '251203_3';
+        this.version = '251203_4';
         this.balls = [];
         this.score = 0;
         this.nextBallReady = true;

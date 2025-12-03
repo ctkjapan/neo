@@ -8,9 +8,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
   <title>ねおちゃんねるゲーム</title>
-  <link rel="shortcut icon" href="./favicon.ico?251203_3">
-  <link rel="stylesheet" href="./style.css?251203_3" type="text/css">
-  <script type="module" crossorigin src="./index.js?251203_3"></script>
+  <link rel="shortcut icon" href="./favicon.ico?251203_4">
+  <link rel="stylesheet" href="./style.css?251203_4" type="text/css">
+  <script type="module" crossorigin src="./index.js?251203_4"></script>
 </head>
 
 <body>
@@ -18,14 +18,14 @@
   <div id="game"></div>
   <audio id="audio"></audio>
   <script>
-    let hue = 0;
-    const intervalID = setInterval(async () => {
-      const $canvas = document.getElementById('game');
-      if (!$canvas) return;
-      hue += 0.1;
-      if (360 < hue) hue -= 360;
-      $canvas.style.filter = 'hue-rotate(' + hue + 'deg) drop-shadow(24px 12px 4px #4444dd)';
-    }, 100);
+    // let hue = 0;
+    // const intervalID = setInterval(async () => {
+    //   const $canvas = document.getElementById('game');
+    //   if (!$canvas) return;
+    //   hue += 0.1;
+    //   if (360 < hue) hue -= 360;
+    //   $canvas.style.filter = 'hue-rotate(' + hue + 'deg) drop-shadow(24px 12px 4px #4444dd)';
+    // }, 100);
   </script>
 </body>
 
