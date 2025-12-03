@@ -41,9 +41,11 @@ export default class MyScene extends Phaser.Scene {
     private gameOverLineY: number;
     private getBallY: number;
 
+    private tweetList?: any[];
+
     constructor() {
         super({ key: 'myscene' });
-        this.version = '251203_2';
+        this.version = '251203_3';
         this.balls = [];
         this.score = 0;
         this.nextBallReady = true;
@@ -57,6 +59,8 @@ export default class MyScene extends Phaser.Scene {
 
         this.scoreDisplay = [];
         this.scoreDisplayCount = 0;
+
+        this.tweetList = [];
     }
 
     preload() {
@@ -94,6 +98,8 @@ export default class MyScene extends Phaser.Scene {
             { score: 50, size: Math.round(this.sys.canvas.height / 3), color: 0xd32f2f, key: '7' },
             { score: 100, size: Math.round(this.sys.canvas.height / 2), color: 0xd32f2f, key: '8' },
         ];
+
+        this.tweetList = ['ねおちゃんねるゲームスタート！', 'がんばれー！', '視聴者数を増やそう！', '同じ大きさのなにかをくっつけて消そう！', 'ねおちゃん', 'りくまる', 'ヒァウィゴー', 'しおんくん', 'しゅうちゃん', 'りーちゃん', 'てっちゃん', '草', '大草原', 'かなしー', 'でも免許なーい', '赤ちゃん　ベイビー　悲しまないで', 'うんこぶりぶりしちゃお', '毒キノコ', 'あーちゃん', 'たけしー', 'ざわざわ', '拍手', 'ご覧のスポンサーの提供でお送りします', 'きまったー！', 'パーフェクト！', '大逆転！', 'さあ、始まりました！', 'これは見逃せない展開！', 'ここでスペシャルムーブ！', 'いけー！', '勝て！', '頼むぞ！', 'ナイス！', 'よっしゃー！', '今だ！', 'もう一息！', 'うぉー！', 'おぉぉぉ！', 'マジか！？', '嘘だろ！？', 'やばい！', 'すげぇ！', 'ハローブンブンユーチューブ　ヒカキンです', 'ここが今日の見どころ', 'ここから先は課金が必要です', 'ファイヤー！', 'ダイアキュート！', 'ブレインダムド！', 'ばっよえーん！', 'テトリス！', 'ティースピン！', 'かばちゃんねるのかばです', 'いちたすいちはにってこと？', 'おわりです！', 'こらぼれーしょん！', 'ぴかちゅーとみっくすきゃろっとの', 'ヌマクロー', 'ばけものだー！', 'わたしはねずみだ', '吹いた', '鳥肌たった', '天才かよ', 'しゃけです', '最高', , 'わかる', 'これな', 'それなすぎる', '一緒だ', '可愛い', '天使', '尊い', 'きゅん', 'これどうやったの？', 'どこで買える？', 'おすすめに出てきた', 'なんでこれバズってないの？', '神', 'えぐ', '解散'];
 
         // クリックした時
         // if (isPc) {
@@ -247,6 +253,13 @@ export default class MyScene extends Phaser.Scene {
         }
         this.nextBallReady = false;
 
+        if (typeof this.tweetList !== 'undefined') {
+            const uttr = new SpeechSynthesisUtterance();
+            uttr.text = this.tweetList[Math.floor(Math.random() * this.tweetList.length)];
+            uttr.lang = 'ja-JP';
+            speechSynthesis.speak(uttr);
+        }
+
         // 物理エンジンを適用して落下さす
         const ball = this.ball!;
         this.applyPhysicsToBall(ball);
@@ -338,6 +351,12 @@ export default class MyScene extends Phaser.Scene {
             // this.add.line(0, GAMEOVER_LINE_Y, 1600, 0, 0, 0, 0xffffff);
             const gameoverLine = this.add.line(0, this.gameOverLineY, 0, 0, this.sys.canvas.width * 2, 0, 0xea5198);
             gameoverLine.setLineWidth(3);
+
+            // audio
+            const audio = new Audio('./mp3/bgm.mp3');
+            audio.loop = true;
+            audio.volume = 0.5;
+            audio.play();
         });
         button.setInteractive();
     }
