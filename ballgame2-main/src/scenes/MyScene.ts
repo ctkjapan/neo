@@ -94,14 +94,15 @@ export default class MyScene extends Phaser.Scene {
         this.getBallY = this.gameOverLineY - Math.round(this.sys.canvas.height / 13);
 
         this.ballTypes = [
-            { score: 1, size: Math.round(this.sys.canvas.height / 30), color: 0xff5733, key: '0' },
+            { score: 1, size: Math.round(this.sys.canvas.height / 28), color: 0xff5733, key: '0' },
             { score: 2, size: Math.round(this.sys.canvas.height / 20), color: 0x00bfa5, key: '1' },
-            { score: 3, size: Math.round(this.sys.canvas.height / 13), color: 0x6f42c1, key: '2' },
-            { score: 7, size: Math.round(this.sys.canvas.height / 8), color: 0x6f42c1, key: '3' },
-            { score: 15, size: Math.round(this.sys.canvas.height / 6), color: 0x2ecc71, key: '4' },
-            { score: 24, size: Math.round(this.sys.canvas.height / 4), color: 0xffc107, key: '5' },
-            { score: 40, size: Math.round(this.sys.canvas.height / 2.75), color: 0x3498db, key: '6' },
-            { score: 100, size: Math.round(this.sys.canvas.height / 1.65), color: 0xd32f2f, key: '7' },
+            { score: 3, size: Math.round(this.sys.canvas.height / 12), color: 0x6f42c1, key: '2' },
+            { score: 5, size: Math.round(this.sys.canvas.height / 9), color: 0x6f42c1, key: '3' },
+            { score: 7, size: Math.round(this.sys.canvas.height / 7), color: 0x2ecc71, key: '4' },
+            { score: 15, size: Math.round(this.sys.canvas.height / 5), color: 0xffc107, key: '5' },
+            { score: 25, size: Math.round(this.sys.canvas.height / 4), color: 0x3498db, key: '6' },
+            { score: 50, size: Math.round(this.sys.canvas.height / 3), color: 0xd32f2f, key: '7' },
+            { score: 100, size: Math.round(this.sys.canvas.height / 2), color: 0xd32f2f, key: '8' },
         ];
 
         // クリックした時
