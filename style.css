@@ -27,7 +27,7 @@ canvas {
 	/* border: 2px solid rgba(255, 255, 255, .6); */
 	pointer-events: all;
 	touch-action: manipulation;
-	filter: drop-shadow(24px 12px 4px #4444dd);
+	filter: drop-shadow(24px 12px 4px rgba(255, 255, 255, .6));
 }
 
 .wave {
