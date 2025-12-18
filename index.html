@@ -41,34 +41,35 @@
     // getメソッド
     let videoId = params.get('v');
 
-    if (videoId === null) {
-      const videoList = ['W3YfiVGSbus', 'aqZR5eU4wCE', 'M2cckDmNLMI'];
-      let video_index = Math.floor(Math.random() * (videoList.length - 1));
-      videoId = videoList[video_index];
-    }
-    console.log(videoId);
+    // if (videoId !== null) {
+    //   const videoList = ['W3YfiVGSbus', 'aqZR5eU4wCE', 'M2cckDmNLMI'];
+    //   let video_index = Math.floor(Math.random() * (videoList.length - 1));
+    //   videoId = videoList[video_index];
+    // }
 
     let player;
     function onYouTubeIframeAPIReady() {
-      player = new YT.Player('player', {
-        videoId: videoId, // YouTube動画のIDを指定
-        playerVars: {
-          autoplay: 1,         // 自動再生
-          controls: 0,         // コントロール非表示
-          showinfo: 0,         // タイトル・チャンネル非表示（旧仕様互換）
-          modestbranding: 1,   // YouTubeロゴの最小化
-          rel: 0,              // 関連動画非表示
-          fs: 0,               // 全画面ボタン非表示
-          iv_load_policy: 3,   // 注釈非表示
-          playsinline: 1,      // モバイルでのインライン再生
-          loop: 1,             // ループ再生
-          playlist: videoId // ループを有効にするにはplaylistの指定が必要
-        },
-        events: {
-          onReady: onPlayerReady,
-          onStateChange: onPlayerStateChange,
-        },
-      });
+      if (videoId !== null) {
+        player = new YT.Player('player', {
+          videoId: videoId, // YouTube動画のIDを指定
+          playerVars: {
+            autoplay: 1,         // 自動再生
+            controls: 0,         // コントロール非表示
+            showinfo: 0,         // タイトル・チャンネル非表示（旧仕様互換）
+            modestbranding: 1,   // YouTubeロゴの最小化
+            rel: 0,              // 関連動画非表示
+            fs: 0,               // 全画面ボタン非表示
+            iv_load_policy: 3,   // 注釈非表示
+            playsinline: 1,      // モバイルでのインライン再生
+            loop: 1,             // ループ再生
+            playlist: videoId // ループを有効にするにはplaylistの指定が必要
+          },
+          events: {
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange,
+          },
+        });
+      }
     }
 
     // 再生準備ができたらミュートして再生開始
