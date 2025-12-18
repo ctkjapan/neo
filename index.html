@@ -10,11 +10,15 @@
   <title>ねおちゃんねるゲーム</title>
   <link rel="shortcut icon" href="./favicon.ico?251203_4">
   <link rel="stylesheet" href="./style.css?251203_4" type="text/css">
+  <script src="https://www.youtube.com/iframe_api"></script>
   <script type="module" crossorigin src="./index.js?251203_4"></script>
 </head>
 
 <body>
-  <div class="wave"></div>
+  <div class="_wave"></div>
+  <div id="video-background">
+    <div id="player"></div>
+  </div>
   <div id="game"></div>
   <audio id="audio"></audio>
   <script>
@@ -26,6 +30,43 @@
     //   if (360 < hue) hue -= 360;
     //   $canvas.style.filter = 'hue-rotate(' + hue + 'deg) drop-shadow(24px 12px 4px #4444dd)';
     // }, 100);
+  </script>
+  <script>
+    let player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        videoId: 'aqZR5eU4wCE', // YouTube動画のIDを指定
+        playerVars: {
+          autoplay: 1,         // 自動再生
+          controls: 0,         // コントロール非表示
+          showinfo: 0,         // タイトル・チャンネル非表示（旧仕様互換）
+          modestbranding: 1,   // YouTubeロゴの最小化
+          rel: 0,              // 関連動画非表示
+          fs: 0,               // 全画面ボタン非表示
+          iv_load_policy: 3,   // 注釈非表示
+          playsinline: 1,      // モバイルでのインライン再生
+          loop: 1,             // ループ再生
+          playlist: 'aqZR5eU4wCE' // ループを有効にするにはplaylistの指定が必要
+        },
+        events: {
+          onReady: onPlayerReady,
+          onStateChange: onPlayerStateChange,
+        },
+      });
+    }
+
+    // 再生準備ができたらミュートして再生開始
+    function onPlayerReady(event) {
+      event.target.mute();
+      event.target.playVideo();
+    }
+
+    // 最後まで再生されたら自動的に再ループ
+    function onPlayerStateChange(event) {
+      if (event.data == YT.PlayerState.ENDED) {
+        event.target.playVideo();
+      }
+    }
   </script>
 </body>
 
