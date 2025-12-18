@@ -45,7 +45,7 @@ export default class MyScene extends Phaser.Scene {
 
     constructor() {
         super({ key: 'myscene' });
-        this.version = '251203_4';
+        this.version = '251218_1';
         this.balls = [];
         this.score = 0;
         this.nextBallReady = true;
@@ -85,7 +85,11 @@ export default class MyScene extends Phaser.Scene {
         this.scoreText = this.add.text(this.sys.canvas.width / 2, 28, `視聴者数: ${this.score} 人`, { fontSize: '28px', color: '#fff', align: 'center' });
         this.scoreText.setOrigin(0.5);
         this.gameOverLineY = this.sys.canvas.height / 5;
-        this.getBallY = this.gameOverLineY - Math.round(this.sys.canvas.height / 13);
+        this.getBallY = this.sys.canvas.height / 10;
+
+        console.log('this.sys.canvas.height', this.sys.canvas.height);
+        console.log('gameOverLineY', this.gameOverLineY);
+        console.log('getBallY', this.getBallY);
 
         this.ballTypes = [
             { score: 1, size: Math.round(this.sys.canvas.height / 28), color: 0xff5733, key: '0' },
@@ -180,7 +184,8 @@ export default class MyScene extends Phaser.Scene {
                 // 大きさが同じボールのみ消す
                 if (width1 !== width2) {
                     // ゲームオーバー判定  最後のボールがラインを超えたか？
-                    if ((ball1 === this.lastBall || ball2 === this.lastBall) && this.lastBall!.y < this.gameOverLineY) {
+                    // if ((ball1 === this.lastBall || ball2 === this.lastBall) && this.lastBall!.y < this.gameOverLineY) {
+                    if ((ball1 === this.lastBall || ball2 === this.lastBall) && this.lastBall!.y < this.getBallY) {
                         this.gameOver = true;
                         this.drawGameOverTexts();
                     }
