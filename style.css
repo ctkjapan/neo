@@ -66,11 +66,17 @@ canvas {
 	animation-delay: 0.4s;
 }
 
+#video-background {
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+}
+
 #player {
 	width: 100%;
 	height: 100dvh;
 	object-fit: cover;
-	pointer-events: none;
+
 }
 
 @keyframes wave {
