@@ -354,10 +354,10 @@ export default class MyScene extends Phaser.Scene {
             gameoverLine.setLineWidth(3);
 
             // audio
-            const audio = new Audio('./mp3/bgm.mp3');
-            audio.loop = true;
-            audio.volume = 0.3;
-            audio.play();
+            // const audio = new Audio('./mp3/bgm.mp3');
+            // audio.loop = true;
+            // audio.volume = 0.3;
+            // audio.play();
         });
         button.setInteractive();
     }
