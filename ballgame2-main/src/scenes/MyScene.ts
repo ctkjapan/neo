@@ -255,7 +255,8 @@ export default class MyScene extends Phaser.Scene {
 
         if (typeof this.tweetList !== 'undefined') {
             const uttr = new SpeechSynthesisUtterance();
-            uttr.text = this.tweetList[Math.floor(Math.random() * this.tweetList.length)];
+            let text_index = Math.floor(Math.random() * (this.tweetList.length - 1));
+            uttr.text = this.tweetList[text_index];
             uttr.lang = 'ja-JP';
             speechSynthesis.speak(uttr);
         }
