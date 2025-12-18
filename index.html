@@ -41,7 +41,7 @@
     // getメソッド
     let videoId = params.get('v');
 
-    if (videoId === '') {
+    if (videoId === null) {
       const videoList = ['W3YfiVGSbus', 'aqZR5eU4wCE', 'M2cckDmNLMI'];
       let video_index = Math.floor(Math.random() * (videoList.length - 1));
       videoId = videoList[video_index];
